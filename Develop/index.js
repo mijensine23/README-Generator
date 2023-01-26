@@ -66,7 +66,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    const contents = generateMarkdown.generateMarkdown(data);
+    const contents = generateMarkdown(data);
 
     fs.writeFileSync(fileName, contents, console.log('File Generated Successfully'))
     }
@@ -74,7 +74,7 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
-    .then(data => {writeToFile(`${data.title}-README.md`, data)}) 
+    .then(data=> {writeToFile(`${data.title}-README.md`, data)}) 
         .catch(error => {console.error(`Oops! Something went wrong.: ${error}`)
         })
 
